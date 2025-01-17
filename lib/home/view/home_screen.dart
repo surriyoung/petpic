@@ -158,20 +158,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 // 내근처여행지
                 Container(
                   height: 170, // 타일 높이 설정
-                  child: ListView.builder(
+                  child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemCount: travelData.length,
+                    separatorBuilder: (context, index) {
+                      return SizedBox(
+                        width: 10,
+                      );
+                    },
                     itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: SizedBox(
-                          width: 143,
-                          child: HomeListTile(
-                            category: travelData[index]['category']!,
-                            name: travelData[index]['name']!,
-                            explain: travelData[index]['explain']!,
-                            imageUrl: travelData[index]['imageUrl']!,
-                          ),
+                      return SizedBox(
+                        width: 143,
+                        child: HomeListTile(
+                          category: travelData[index]['category']!,
+                          name: travelData[index]['name']!,
+                          explain: travelData[index]['explain']!,
+                          imageUrl: travelData[index]['imageUrl']!,
                         ),
                       );
                     },
@@ -202,20 +204,22 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Container(
                   height: 83, // 타일 높이 설정
-                  child: ListView.builder(
+                  child: ListView.separated(
                     scrollDirection: Axis.horizontal,
                     itemCount: travelData.length,
+                    separatorBuilder: (context, index) {
+                      return SizedBox(
+                        width: 10,
+                      );
+                    },
                     itemBuilder: (context, index) {
-                      return Padding(
-                        padding: const EdgeInsets.only(right: 10),
-                        child: SizedBox(
-                          width: 224,
-                          child: HomeListTile(
-                            category: withData[index]['category']!,
-                            name: withData[index]['name']!,
-                            explain: withData[index]['explain']!,
-                            imageUrl: withData[index]['imageUrl']!,
-                          ),
+                      return SizedBox(
+                        width: 224,
+                        child: HomeListTile(
+                          category: withData[index]['category']!,
+                          name: withData[index]['name']!,
+                          explain: withData[index]['explain']!,
+                          imageUrl: withData[index]['imageUrl']!,
                         ),
                       );
                     },
