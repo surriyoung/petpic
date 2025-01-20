@@ -6,7 +6,8 @@ class CustomColor {
   static const Color lightBlueBGColor = Color(0xffF3F9FF);
   static const Color lightGreyBGColor = Color(0xffF0F0F0);
   static const Color greyBGColor = Color(0xffD9D9D9);
-  static const Color iconColor = Color(0xff515366);
+  static const Color iconColor = Color(0xff757575);
   static const Color greyFontColor = Color(0xff707070);
   static const Color lightGreyFontColor = Color(0xffDADADA);
+  static const Color greyLineColor = Color(0xffDDDDDD);
 }

@@ -39,6 +39,7 @@ dependencies:
   flutter_localization: ^0.2.1
   dropdown_button2: ^2.3.9
   double_back_to_close_app: ^2.1.0
+  fluttertoast: ^8.2.10
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +67,7 @@ flutter:
   assets:
     - images/
     - images/icons/
+    - images/home_icons/
   # - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

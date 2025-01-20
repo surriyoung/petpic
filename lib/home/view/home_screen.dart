@@ -20,7 +20,7 @@ class _HomeScreenState extends State<HomeScreen> {
       print('검색어: ${_controller.text}');
     }
 
-    final screenWidth = MediaQuery.of(context).size.width; // 화면넓이
+    final screenWidth = MediaQuery.of(context).size.width - 34; // 화면넓이
     final double statusBarSize = MediaQuery.of(context).padding.top;
     final double bottomPadding = MediaQuery.of(context).padding.bottom;
 
@@ -95,28 +95,29 @@ class _HomeScreenState extends State<HomeScreen> {
         'imageUrl': 'images/sample.png'
       },
     ];
+    List<Map<String, String>> bulletPreView = [
+      {
+        'bulletTit': '제목1',
+        'bulletCategory': '카테고리1',
+        'imgUrl': 'images/sample.png',
+        'userName': '사용자1',
+        'min': '5',
+        'view': '100',
+        'comment': '10',
+      },
+      {
+        'bulletTit': '제목2',
+        'bulletCategory': '카테고리2',
+        'imgUrl': 'images/sample.png',
+        'userName': '사용자2',
+        'min': '10',
+        'view': '200',
+        'comment': '20',
+      },
+    ];
 
     return Scaffold(
       backgroundColor: CustomColor.appBGColor,
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Image.asset(
-              'images/logo.png',
-              width: 115,
-            ),
-            CustomSearchBox(
-              hintText: '검색할 내용을 입력하세요',
-              controller: _controller,
-              onSearchPressed: _onSearchPressed,
-              height: 38,
-              width: screenWidth * 0.5,
-            ),
-          ],
-        ),
-      ),
       body: DoubleBackToCloseApp(
         snackBar: SnackBar(
           content: Text('뒤로가기를 한번 더 누르면 앱이 종료됩니다'),
@@ -238,7 +239,29 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(
                   height: 17,
                 ),
-                BulletPreviewTile(),
+                SizedBox(
+                  height: (78 * bulletPreView.length).toDouble(),
+                  child: ListView.separated(
+                    itemCount: bulletPreView.length,
+                    separatorBuilder: (context, index) {
+                      return SizedBox(
+                        height: 10,
+                      );
+                    },
+                    itemBuilder: (context, index) {
+                      return BulletPreviewTile(
+                        bulletTit: bulletPreView[index]['bulletTit'] ?? '',
+                        bulletCategory:
+                            bulletPreView[index]['bulletCategory'] ?? '',
+                        imgUrl: bulletPreView[index]['imgUrl'] ?? '',
+                        userName: bulletPreView[index]['userName'] ?? '',
+                        min: bulletPreView[index]['min'] ?? '',
+                        view: bulletPreView[index]['view'] ?? '',
+                        comment: bulletPreView[index]['comment'] ?? '',
+                      );
+                    },
+                  ),
+                ),
               ],
             ),
           ),

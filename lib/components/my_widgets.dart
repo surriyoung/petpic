@@ -27,8 +27,9 @@ class CustomDropdown extends StatelessWidget {
         hint: Text(
           '선택',
           style: TextStyle(
-            fontSize: 14,
-            color: Theme.of(context).hintColor,
+            fontSize: DynamicFontSize.font12(context),
+            color: Colors.black,
+            fontWeight: FontWeight.w500,
           ),
         ),
         items: items
@@ -37,8 +38,9 @@ class CustomDropdown extends StatelessWidget {
                 value: item,
                 child: Text(
                   item,
-                  style: const TextStyle(
-                    fontSize: 14,
+                  style: TextStyle(
+                    fontSize: DynamicFontSize.font12(context),
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
@@ -51,6 +53,7 @@ class CustomDropdown extends StatelessWidget {
           height: height,
           width: width ?? 77,
           decoration: BoxDecoration(
+            border: Border.all(color: CustomColor.greyBGColor),
             color: CustomColor.appBGColor, // 배경색 설정
             borderRadius: BorderRadius.circular(20), // BorderRadius 설정
           ),
@@ -59,8 +62,8 @@ class CustomDropdown extends StatelessWidget {
           elevation: 0,
           decoration: BoxDecoration(
               color: Colors.white,
-              border:
-                  Border.all(width: 1, color: CustomColor.appBGColor), // 배경색 설정
+              border: Border.all(
+                  width: 1, color: CustomColor.greyBGColor), // 배경색 설정
               borderRadius:
                   BorderRadius.circular(20) // 드롭다운 리스트의 BorderRadius 설정
               ),
@@ -236,7 +239,22 @@ class _CustomTabButtonsState extends State<CustomTabButtons> {
 }
 
 class BulletPreviewTile extends StatelessWidget {
-  const BulletPreviewTile({super.key});
+  final String bulletTit;
+  final String bulletCategory;
+  final String imgUrl;
+  final String userName;
+  final String min;
+  final String view;
+  final String comment;
+  const BulletPreviewTile(
+      {super.key,
+      required this.bulletTit,
+      required this.bulletCategory,
+      required this.imgUrl,
+      required this.userName,
+      required this.min,
+      required this.view,
+      required this.comment});
 
   @override
   Widget build(BuildContext context) {
@@ -246,7 +264,7 @@ class BulletPreviewTile extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              '게시글 제목입니당',
+              bulletTit,
               style: TextStyle(
                   fontSize: DynamicFontSize.font15(context),
                   fontWeight: FontWeight.w500),
@@ -259,14 +277,80 @@ class BulletPreviewTile extends StatelessWidget {
               ),
               padding: EdgeInsets.symmetric(horizontal: 5),
               child: Text(
-                '후기',
+                bulletCategory,
                 style: TextStyle(
                     fontSize: DynamicFontSize.font10(context),
                     fontWeight: FontWeight.w500),
               ),
             )
           ],
-        )
+        ),
+        SizedBox(
+          height: 15,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
+              children: [
+                SizedBox(
+                  width: 20,
+                  height: 20,
+                  child: ClipOval(
+                    child: Image.asset(
+                      imgUrl,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  userName,
+                  style: TextStyle(
+                      fontSize: DynamicFontSize.font12(context),
+                      fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Text(
+                  '${min}분 전',
+                  style: TextStyle(
+                      fontSize: DynamicFontSize.font10(context),
+                      fontWeight: FontWeight.w500),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  '조회 ${view}',
+                  style: TextStyle(
+                      fontSize: DynamicFontSize.font10(context),
+                      fontWeight: FontWeight.w500),
+                ),
+                SizedBox(
+                  width: 5,
+                ),
+                Text(
+                  '댓글 ${comment}',
+                  style: TextStyle(
+                      fontSize: DynamicFontSize.font10(context),
+                      fontWeight: FontWeight.w500),
+                ),
+              ],
+            ),
+          ],
+        ),
+        SizedBox(
+          height: 15,
+        ),
+        Divider(
+          height: 1,
+          color: CustomColor.greyLineColor,
+        ),
       ],
     );
   }
