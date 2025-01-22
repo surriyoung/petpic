@@ -104,6 +104,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'min': '5',
         'view': '100',
         'comment': '10',
+        'onTap': '',
       },
       {
         'bulletTit': '제목2',
@@ -113,6 +114,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'min': '10',
         'view': '200',
         'comment': '20',
+        'onTap': '',
       },
     ];
 
@@ -258,6 +260,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         min: bulletPreView[index]['min'] ?? '',
                         view: bulletPreView[index]['view'] ?? '',
                         comment: bulletPreView[index]['comment'] ?? '',
+                        onTap: () {
+                          bulletPreView[index]['onTap'] ?? '';
+                        },
                       );
                     },
                   ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:petpic/components/my_widgets.dart';
 import 'package:petpic/constants/color.dart';
 import 'package:petpic/constants/font_size.dart';
 

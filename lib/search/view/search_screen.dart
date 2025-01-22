@@ -83,6 +83,7 @@ class _SearchScreenState extends State<SearchScreen> {
     final screenWidth = MediaQuery.of(context).size.width - 34; // 패딩 제외 화면 넓이
 
     return Scaffold(
+      backgroundColor: CustomColor.appBGColor,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 17),
         child: Column(
@@ -180,41 +181,16 @@ class _SearchScreenState extends State<SearchScreen> {
                           Positioned(
                             top: 10,
                             right: 10,
-                            child: GestureDetector(
+                            child: FavoriteBtn(
+                              isFavorite: isFavorite,
                               onTap: () {
                                 setState(() {
-                                  // 찜하기 상태 토글
-                                  if (!isFavorite) {
-                                    isFavorite = true;
-                                    // 찜하기 할 때만 팝업 띄우기
+                                  isFavorite = !isFavorite;
+                                  if (isFavorite) {
                                     _showBottomSheet();
-                                  } else {
-                                    isFavorite = false;
                                   }
                                 });
                               },
-                              child: Container(
-                                width: 30,
-                                height: 30,
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Colors.black.withOpacity(0.2),
-                                      blurRadius: 4,
-                                      offset: Offset(0, 2),
-                                    ),
-                                  ],
-                                ),
-                                child: Icon(
-                                  isFavorite
-                                      ? Icons.favorite // 채워진 하트
-                                      : Icons.favorite_border, // 선만 있는 하트
-                                  color: isFavorite ? Colors.red : Colors.grey,
-                                  size: 18,
-                                ),
-                              ),
                             ),
                           ),
                         ],

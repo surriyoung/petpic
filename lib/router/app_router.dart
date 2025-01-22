@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:petpic/community/view/community_detail_screen.dart';
 import 'package:petpic/community/view/community_screen.dart';
 import 'package:petpic/course/view/course_screen.dart';
 import 'package:petpic/home/view/home_layout_screen.dart';
@@ -6,8 +7,9 @@ import 'package:petpic/home/view/home_screen.dart';
 import 'package:petpic/my/view/my_screen.dart';
 import 'package:petpic/search/view/search_screen.dart';
 
-final router = GoRouter(routes: [
-  GoRoute(
+final router = GoRouter(
+  routes: [
+    GoRoute(
       path: '/',
       name: 'HomeLayoutScreen',
       builder: (context, state) {
@@ -41,6 +43,15 @@ final router = GoRouter(routes: [
           builder: (context, state) {
             return CommunityScreen();
           },
+          routes: [
+            GoRoute(
+              path: 'community_detail_screen',
+              name: 'CommunityDetailScreen',
+              builder: (context, state) {
+                return CommunityDetailScreen();
+              },
+            ),
+          ],
         ),
         GoRoute(
           path: 'my_screen',
@@ -49,5 +60,7 @@ final router = GoRouter(routes: [
             return MyScreen();
           },
         ),
-      ])
-]);
+      ],
+    )
+  ],
+);
