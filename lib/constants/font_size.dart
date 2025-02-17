@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 //반응형 폰트 -- 플립, 폴드의 경우 제거
 class DynamicFontSize {
   //적용법 fontSize: FontSize.font20(context),
@@ -74,7 +75,16 @@ class DynamicFontSize {
     return _getFontSize(context, 0.025, 10);
   }
 
-  static double _getFontSize(BuildContext context, double ratio, double fixedSize) {
+  static double font9(BuildContext context) {
+    return _getFontSize(context, 0.023, 9);
+  }
+
+  static double font8(BuildContext context) {
+    return _getFontSize(context, 0.021, 8);
+  }
+
+  static double _getFontSize(
+      BuildContext context, double ratio, double fixedSize) {
     double screenWidth = MediaQuery.of(context).size.width;
 
     // 예를 들어, 화면 넓이가 400dp 이하인 경우 고정된 값을 반환
