@@ -1,0 +1,2 @@
+/Users/bag-yongjin/Documents/github/petpic/android/app/.cxx/Debug/615k2v2a/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/bag-yongjin/Documents/github/petpic/android/app/.cxx/Debug/615k2v2a/armeabi-v7a/CMakeFiles/rebuild_cache.dir
