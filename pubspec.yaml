@@ -40,6 +40,7 @@ dependencies:
   dropdown_button2: ^2.3.9
   double_back_to_close_app: ^2.1.0
   fluttertoast: ^8.2.10
+  intl: ^0.19.0
 
 dev_dependencies:
   flutter_test:

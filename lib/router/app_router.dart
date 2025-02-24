@@ -2,6 +2,7 @@ import 'package:go_router/go_router.dart';
 import 'package:petpic/community/view/community_detail_screen.dart';
 import 'package:petpic/community/view/community_screen.dart';
 import 'package:petpic/course/view/course_screen.dart';
+import 'package:petpic/course/view/course_add_form_screen.dart';
 import 'package:petpic/home/view/home_layout_screen.dart';
 import 'package:petpic/home/view/home_screen.dart';
 import 'package:petpic/my/view/my_screen.dart';
@@ -36,6 +37,15 @@ final router = GoRouter(
           builder: (context, state) {
             return CourseScreen();
           },
+          routes: [
+            GoRoute(
+              path: 'course_add_form_screen',
+              name: 'CourseAddFormScreen',
+              builder: (context, state) {
+                return CourseAddFormScreen();
+              },
+            ),
+          ],
         ),
         GoRoute(
           path: 'community_screen',

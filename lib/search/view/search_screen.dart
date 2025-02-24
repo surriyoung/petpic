@@ -85,11 +85,13 @@ class _SearchScreenState extends State<SearchScreen> {
     return Scaffold(
       backgroundColor: CustomColor.appBGColor,
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 17),
+        padding: const EdgeInsets.symmetric(
+          horizontal: 17,
+          vertical: 20,
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 20), // 상단 여백
             CustomSearchBox(
               hintText: '검색할 내용을 입력하세요',
               controller: _controller,
